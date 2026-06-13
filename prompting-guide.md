@@ -1,16 +1,20 @@
 # Prompting Guide for Supply Chain Professionals
 
-A practical framework for getting useful outputs from LLMs — written for planners, analysts, and operations professionals, not developers.
+### *"Summarise the supplier report."* vs a 60-word prompt that produces a board-ready analysis in one shot. The gap between those two is what this guide covers.
+
+A practical framework for getting useful outputs from LLMs — written for planners, analysts, and operations professionals.  
+By the end you will have a reusable prompt structure and five patterns you can apply to your next supply chain problem today.  
+*(15 minute read)*
 
 ---
 
 ## Contents
 
-1. [Why prompt structure matters](#1-why-prompt-structure-matters)
-2. [The core framework](#2-the-core-framework)
-3. [The five most useful patterns for business](#3-the-five-most-useful-patterns-for-business)
-4. [Common mistakes and how to fix them](#4-common-mistakes-and-how-to-fix-them)
-5. [How to read the prompts in this library](#5-how-to-read-the-prompts-in-this-library)
+1. [Why prompt structure matters](#1-why-prompt-structure-matters)<br>&nbsp;&nbsp;&nbsp;&nbsp;*Why vague inputs produce vague outputs — and how to fix it in under a minute*
+2. [The core framework](#2-the-core-framework)<br>&nbsp;&nbsp;&nbsp;&nbsp;*A five-component structure you can apply to any business problem*<br>&nbsp;&nbsp;&nbsp;&nbsp;*Includes a ready-to-use template* → [Jump to the reusable template](#the-reusable-template) *(copy and customize)*
+3. [The five most useful patterns for business](#3-the-five-most-useful-patterns-for-business)<br>&nbsp;&nbsp;&nbsp;&nbsp;*The techniques that consistently produce better results in operational contexts*<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Role prompting](#pattern-1--role-prompting)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Few-shot examples](#pattern-2--few-shot-examples)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Chain of thought](#pattern-3--chain-of-thought)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Structured output](#pattern-4--structured-output)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Constraint setting](#pattern-5--constraint-setting)
+4. [Common mistakes and how to fix them](#4-common-mistakes-and-how-to-fix-them)<br>&nbsp;&nbsp;&nbsp;&nbsp;*The five things business users get wrong — with before/after fixes*
+5. [How to read the prompts in this library](#5-how-to-read-the-prompts-in-this-library)<br>&nbsp;&nbsp;&nbsp;&nbsp;*Where to go next based on your industry*
 
 ---
 
