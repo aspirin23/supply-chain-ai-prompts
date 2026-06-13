@@ -1,11 +1,16 @@
-# supply-chain-ai-prompts
-A curated library of Claude prompts for supply chain, CPG/retail, manufacturing, and energy &amp; utilities professionals
-
 # Supply Chain AI Prompts
 
-A curated library of Claude prompts for supply chain, operations, and industry professionals — covering **CPG & Retail**, **Manufacturing**, and **Energy & Utilities**.
+A practitioner's guide to prompting LLMs for supply chain, operations, and industry work — covering **CPG & Retail**, **Manufacturing**, and **Energy & Utilities**.
 
-These prompts are designed for practitioners who want to apply large language models to real operational problems — not generic AI demos. Each prompt is battle-tested against actual business scenarios and includes context on when and how to use it.
+This repo is built around a core prompting framework first. The industry prompt libraries are worked examples of that framework applied to real operational problems — not a generic collection of copy-paste snippets.
+
+---
+
+## What's inside
+
+**[prompting-guide.md](./prompting-guide.md)** — Start here. A structured guide to writing effective prompts for supply chain and operations contexts: how to frame business problems for LLMs, how to provide the right context, and how to get outputs that are actually useful in professional settings.
+
+**Industry prompt libraries** — Worked examples of the framework applied to four domains, each prompt tied to a specific operational scenario.
 
 ---
 
@@ -23,32 +28,28 @@ These prompts are designed for practitioners who want to apply large language mo
 ```
 supply-chain-ai-prompts/
 │
+├── prompting-guide.md            # Start here — the core framework
+│
 ├── cpg-retail/
-│   └── prompts.md          # Demand forecasting, promo planning, inventory, consumer insights
+│   └── prompts.md                # Demand forecasting, promo planning, inventory, consumer insights
 │
 ├── manufacturing/
-│   └── prompts.md          # Production planning, supplier risk, quality, maintenance
+│   └── prompts.md                # Production planning, supplier risk, quality, maintenance
 │
 ├── energy-utilities/
-│   └── prompts.md          # Load forecasting, asset performance, ESG reporting, procurement
+│   └── prompts.md                # Load forecasting, asset performance, ESG reporting, procurement
 │
 └── general-supply-chain/
-    └── prompts.md          # Cross-industry prompts for planning, reporting, and analysis
+    └── prompts.md                # Cross-industry prompts for planning, reporting, and analysis
 ```
 
 ---
 
-## Prompt format
+## How to use this repo
 
-Each prompt follows a consistent structure:
-
-```
-### Prompt name
-**Use case:** What business problem this solves
-**When to use:** The scenario or trigger for using this prompt
-**Prompt:** The actual prompt text — ready to copy and use
-**Example output:** What a good response looks like
-```
+1. **Read the prompting guide first** — [`prompting-guide.md`](./prompting-guide.md) gives you the framework. Even if you only want the prompts, skimming the guide will make you significantly better at adapting them.
+2. **Browse the industry folders** — each prompt is a worked example of the framework applied to a specific operational problem.
+3. **Copy, adapt, use** — prompts include placeholders in `[brackets]`. Swap in your own context and run them in [Claude](https://claude.ai) or your preferred LLM.
 
 ---
 
@@ -63,24 +64,31 @@ Each prompt follows a consistent structure:
 
 ---
 
-## How to use these prompts
+## Prompt format
 
-1. Browse to the relevant industry folder
-2. Find a prompt that matches your use case
-3. Copy the prompt text
-4. Paste it into [Claude](https://claude.ai) or your preferred LLM interface
-5. Adjust the placeholders (marked with `[brackets]`) to match your specific context
+Every prompt in the industry libraries follows this structure:
+
+```
+### Prompt name
+**Use case:** What business problem this solves
+**When to use:** The scenario or trigger for using this prompt
+**Prompt:** The actual prompt text — ready to copy and adapt
+**Why this works:** How this prompt applies the framework principles
+```
+
+The **Why this works** section is what separates this from a plain prompt dump — it explains the prompting logic so you can adapt and extend each example yourself.
 
 ---
 
 ## Status
 
-| Folder | Status |
-|--------|--------|
-| CPG & Retail | 🔜 Coming soon |
-| Manufacturing | 🔜 Coming soon |
-| Energy & Utilities | 🔜 Coming soon |
-| General Supply Chain | 🔜 Coming soon |
+| File | Status |
+|------|--------|
+| `prompting-guide.md` | 🔜 Coming soon |
+| `cpg-retail/prompts.md` | 🔜 Coming soon |
+| `manufacturing/prompts.md` | 🔜 Coming soon |
+| `energy-utilities/prompts.md` | 🔜 Coming soon |
+| `general-supply-chain/prompts.md` | 🔜 Coming soon |
 
 ---
 
@@ -88,4 +96,4 @@ Each prompt follows a consistent structure:
 
 Built by [Anindya](https://www.linkedin.com/in/anindya-chakraborty-iimb/) — senior supply chain and AI professional, Claude Certified Architect. Connect on LinkedIn for posts on enterprise AI, supply chain, and practical LLM applications.
 
-*Prompts added regularly. Star the repo to follow along.* 
+*Content added regularly. Star the repo to follow along.*
