@@ -10,7 +10,7 @@ By the end you will have a reusable prompt template and five patterns you can ap
 
 1. [Why prompt structure matters](#1-why-prompt-structure-matters)<br>&nbsp;&nbsp;&nbsp;&nbsp;*Why vague inputs produce vague outputs — and how to fix it in under a minute*
 2. [The core framework](#2-the-core-framework)<br>&nbsp;&nbsp;&nbsp;&nbsp;*A five-component structure you can apply to any business problem*<br>&nbsp;&nbsp;&nbsp;&nbsp;*Includes a ready-to-use template* → [Jump to the reusable template](#the-reusable-template) *(copy and customize)*
-3. [The five most useful patterns for business](#3-the-five-most-useful-patterns-for-business)<br>&nbsp;&nbsp;&nbsp;&nbsp;*The techniques that consistently produce better results in operational contexts — each linked out to a full breakdown*<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Role prompting](./prompt-patterns/01-role-prompting.md)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Few-shot examples](./prompt-patterns/02-few-shot-examples.md)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Chain of thought](./prompt-patterns/03-chain-of-thought.md)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Structured output](./prompt-patterns/04-structured-output.md)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Constraint setting](./prompt-patterns/05-constraint-setting.md)
+3. [The five most useful patterns for business](#3-the-five-most-useful-patterns-for-business)<br>&nbsp;&nbsp;&nbsp;&nbsp;*The techniques that consistently produce better results in operational contexts*<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Role prompting](#pattern-1--role-prompting)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Few-shot examples](#pattern-2--few-shot-examples)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Chain of thought](#pattern-3--chain-of-thought)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Structured output](#pattern-4--structured-output)<br>&nbsp;&nbsp;&nbsp;&nbsp;— [Constraint setting](#pattern-5--constraint-setting)
 4. [Common mistakes and how to fix them](#4-common-mistakes-and-how-to-fix-them)<br>&nbsp;&nbsp;&nbsp;&nbsp;*The five things business users get wrong — with before/after fixes*
 5. [How to read the prompts in this library](#5-how-to-read-the-prompts-in-this-library)<br>&nbsp;&nbsp;&nbsp;&nbsp;*Where to go next based on your industry*
 
@@ -114,44 +114,87 @@ OUTPUT FORMAT:
 
 ---
 
-## 3. The five most useful prompting patterns for business
+## 3. The five most useful patterns for business
 
-There are a handful of prompting patterns that consistently produce better results in operational and enterprise contexts. The core prompting framework is an amalgamation of these key prompting patterns. Each pattern is broken out into its own page with worked examples across CPG/Retail, Manufacturing, and Energy/Utilities, common failure modes, and how it pairs with the other patterns. 
+Beyond the core framework, a handful of prompting patterns consistently produce better results in operational and enterprise contexts.
 
 ---
 
 ### Pattern 1 — Role prompting
-Assigning the model a specific professional identity before asking your question. This is the single highest-leverage change most business users can make to their prompts — it recalibrates vocabulary, assumptions, and depth without you having to spell any of that out explicitly.
 
-→ [Read the full pattern: Role prompting](./prompt-patterns/01-role-prompting.md)
+**What it is:** Assigning the model a specific professional identity before asking your question.
+
+**Why it works:** The model adjusts its assumptions, vocabulary, and depth based on the role you define. A prompt written for a "logistics analyst" produces a different response than the same prompt written for a "CFO" — even if the underlying question is identical.
+
+**When to use it:** Almost always. Role prompting is the single highest-leverage change most business users can make to their prompts.
+
+**Example:**
+> *"You are an experienced energy procurement analyst at a large utilities company. Your role is to help evaluate supplier bids and identify risk factors in long-term energy contracts."*
 
 ---
 
 ### Pattern 2 — Few-shot examples
-Showing the model one or more examples of the output you want before asking it to produce its own. Use this when describing your desired format, tone, or depth in words alone isn't getting you there.
 
-→ [Read the full pattern: Few-shot examples](./prompt-patterns/02-few-shot-examples.md)
+**What it is:** Showing the model one or more examples of the output you want before asking it to produce its own.
+
+**Why it works:** Examples communicate format, tone, and depth far more efficiently than instructions alone. The model pattern-matches against your examples rather than interpreting abstract descriptions.
+
+**When to use it:** When you need output in a very specific format, at a specific length, or in a particular tone — and describing it in words alone is not working.
+
+**Example:**
+> *"Here is an example of how I want exceptions summarised:*
+>
+> *SKU 10234 — Replenishment exception: stock on hand fell to 3 days cover against a target of 14 days. Likely cause: promotional uplift not reflected in the base forecast. Recommended action: emergency replenishment order and forecast recalibration.*
+>
+> *Now apply the same format to the following exceptions: [paste data]"*
 
 ---
 
 ### Pattern 3 — Chain of thought
-Asking the model to reason step by step before arriving at a conclusion. This reduces errors on multi-step analytical tasks and makes the logic auditable — you can see exactly where the model's assumptions diverge from yours.
 
-→ [Read the full pattern: Chain of thought](./prompt-patterns/03-chain-of-thought.md)
+**What it is:** Asking the model to show its reasoning step by step before arriving at a conclusion.
+
+**Why it works:** For analytical or multi-step problems, forcing the model to reason explicitly reduces errors and makes the logic auditable. It also helps you spot where the model's assumptions diverge from yours.
+
+**When to use it:** Complex analytical tasks, root cause analysis, scenario evaluation, or any situation where you need to trust — and verify — the reasoning, not just the conclusion.
+
+**Example:**
+> *"Think through this step by step. First, identify what the data tells us about demand variability for this SKU. Then assess whether current safety stock levels are appropriate given that variability. Finally, recommend an adjustment and explain your reasoning."*
+
+Or simply add:
+> *"Think step by step before giving your final answer."*
 
 ---
 
 ### Pattern 4 — Structured output
-Explicitly specifying the format, structure, and length of the model's response. LLMs default to flowing prose; business contexts almost always need something more structured — a table, a list, a report section ready to drop in with minimal editing.
 
-→ [Read the full pattern: Structured output](./prompt-prompt-patterns/04-structured-output.md)
+**What it is:** Explicitly specifying the format, structure, and length of the model's response.
+
+**Why it works:** LLMs default to flowing prose. In business contexts you almost always need something more structured — a table, a list, a template, a report section. Specifying the structure upfront saves significant editing time.
+
+**When to use it:** Whenever the output needs to slot into a presentation, report, email, or dashboard without heavy reformatting.
+
+**Example:**
+> *"Return your analysis in the following format:*
+> *- Summary (two sentences)*
+> *- Key findings (bullet list, maximum five points)*
+> *- Recommended actions (numbered list, one sentence each)*
+> *- Risks and assumptions (bullet list)*"*
+
+You can also request output as a markdown table, JSON, or any other structured format if you are feeding the output into a tool or system.
 
 ---
 
 ### Pattern 5 — Constraint setting
-Telling the model what not to do, what not to assume, and what limits to respect. Without constraints the model fills gaps with its own assumptions, which rarely match your audience, scope, or confidentiality requirements.
 
-→ [Read the full pattern: Constraint setting](./prompt-patterns/05-constraint-setting.md)
+**What it is:** Explicitly telling the model what not to do, what not to assume, and what limits to respect.
+
+**Why it works:** Without constraints, the model fills gaps with its own assumptions — which may not match your context, audience, or requirements. Constraints reduce unwanted variation and keep outputs within scope.
+
+**When to use it:** When audience, tone, confidentiality, or scope matters — which in business contexts is nearly always.
+
+**Example:**
+> *"Do not include information that was not in the data provided. If you are making an assumption, state it explicitly. Keep the tone factual and avoid speculative language. The output will be shared with external stakeholders so do not reference internal system names or cost figures."*
 
 ---
 
@@ -241,14 +284,13 @@ Every prompt in the library includes a **"Why this works"** section that maps th
 **Suggested path:**
 
 1. Read this guide once end to end
-2. Go through each of the prompting patterns
-3. Pick the industry folder closest to your current work
-4. Read two or three prompts alongside their "Why this works" explanation
-5. Adapt one prompt to your own context and test it
-6. Come back to the other patterns as your use cases evolve
+2. Pick the industry folder closest to your current work
+3. Read two or three prompts alongside their "Why this works" explanation
+4. Adapt one prompt to your own context and test it
+5. Come back to the other patterns as your use cases evolve
 
 The goal is not to give you prompts to copy. It is to give you a mental model that lets you write better prompts for any operational problem you face.
 
 ---
 
-*Part of the [AI Prompts for the Enterprise](https://github.com/aspirin23/enterprise-ai-prompts) repository. New content added regularly — star the repo to follow along.*
+*Part of the [supply-chain-prompts-playbook](https://github.com/aspirin23/supply-chain-prompts-playbook) repository. New content added regularly — star the repo to follow along.*
