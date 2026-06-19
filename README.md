@@ -17,7 +17,7 @@ This repo is built around a core prompting framework first. The industry prompt 
 
 1. **Read the prompting guide first** — [`prompting-guide.md`](./prompting-guide.md) gives you the framework. Even if you only want the prompts, skimming the guide will make you significantly better at adapting them.
 2. **Go deeper on a pattern** — if one of the five patterns feels relevant to a problem you're working on, the [`prompt-patterns/`](./prompt-patterns/) folder has a full breakdown with industry-specific examples and failure modes.
-3. **Browse the industry folders** — each prompt is a worked example of the framework applied to a specific operational problem.
+3. **Browse the industry folders** — across the three industries (CPG/Retail, Manufacturing, Energy/Utilities) and the cross-functional general supply chain library, every prompt is a worked example of the framework applied to a specific operational problem.
 4. **Copy, adapt, use** — prompts include placeholders in `[brackets]`. Swap in your own context and run them in your preferred LLM.
 
 ---
